@@ -291,40 +291,47 @@ return [
 
     'menu' => [
         // Navbar items:
+       
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
         ],
-        
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
         // Sidebar items:
+        
+        
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' =>'Client',
+            'text' =>'Etudiant',
             'url' =>'test',
-            'icon'        => 'far fa-fw fa-file',
-
+            'icon'        => 'fas fa-fw fa-graduation-cap',
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' =>'Professeure',
+            'url' => 'admin',
+            'icon'        => 'fas fa-fw fa-briefcase',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' =>'Surveillents',
+            'url' => 'admin',
+            'icon'        => 'fas fa-fw fa-users',
         ],
+        [
+            'text' =>'Universite',
+            'url' => 'admin',
+            'icon'        => 'fas fa-fw fa-university',
+        ],
+        // [
+        //     'text'        => 'pages',
+        //     'url'         => 'admin',
+        //     'icon'        => 'far fa-fw fa-file',
+        //     'label'       => 4,
+        //     'label_color' => 'success',
+        // ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -336,7 +343,44 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        
+        // [
+        //     'text'    => 'multilevel',
+        //     'icon'    => 'fas fa-fw fa-share',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'level_one',
+        //             'url'  => '#',
+        //         ],
+        //         [
+        //             'text'    => 'level_one',
+        //             'url'     => '#',
+        //             'submenu' => [
+        //                 [
+        //                     'text' => 'level_two',
+        //                     'url'  => '#',
+        //                 ],
+        //                 [
+        //                     'text'    => 'level_two',
+        //                     'url'     => '#',
+        //                     'submenu' => [
+        //                         [
+        //                             'text' => 'level_three',
+        //                             'url'  => '#',
+        //                         ],
+        //                         [
+        //                             'text' => 'level_three',
+        //                             'url'  => '#',
+        //                         ],
+        //                     ],
+        //                 ],
+        //             ],
+        //         ],
+        //         [
+        //             'text' => 'level_one',
+        //             'url'  => '#',
+        //         ],
+        //     ],
+        // ],
         
     ],
 
