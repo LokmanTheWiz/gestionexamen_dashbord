@@ -307,12 +307,12 @@ return [
         
         [
             'text' =>'Etudiant',
-            'url' =>'test',
+            'url' =>'etudiant',
             'icon'        => 'fas fa-fw fa-graduation-cap',
         ],
         [
             'text' =>'Professeure',
-            'url' => 'admin',
+            'url' => 'test',
             'icon'        => 'fas fa-fw fa-briefcase',
         ],
         [
@@ -324,6 +324,11 @@ return [
             'text' =>'Universite',
             'url' => 'admin',
             'icon'        => 'fas fa-fw fa-university',
+        ],
+        [
+            'text' =>'Examens',
+            'url' => 'admin',
+            'icon'        => 'fas fa-fw fa-calendar',
         ],
         // [
         //     'text'        => 'pages',
