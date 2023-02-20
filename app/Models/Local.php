@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Local extends Model
 {
     use HasFactory;
+    protected $fillable = ['examen_id', 'departement','libelle']; 
+
 }
