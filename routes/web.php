@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfesseurController;
+use App\Http\Controllers\EtudiantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,5 @@ Route::get('/test', function () {
 Route::get('/etudiant', function () {
     return view('examen.etudiant.index');
 });
+Route::resource('professeure',ProfesseurController::class);
+Route::resource('etudiant',EtudiantController::class);

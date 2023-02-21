@@ -308,7 +308,7 @@ return [
         
         [
             'text' =>'Etudiant',
-            'url' =>'admin',
+            'url' =>'etudiant',
             'icon'        => 'fas fa-fw fa-graduation-cap',
         ],
         [

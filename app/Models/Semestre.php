@@ -9,5 +9,12 @@ class Semestre extends Model
 {
     use HasFactory;
     protected $fillable = ['anneescolaire', 'semestre','module_id']; 
-
+    public function module()
+    {
+        return $this->hasMany(Module::class);
+    }
+    public function etudiant()
+    {
+        return $this->hasMany(Etudiant::class);
+    }
 }
