@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -307,12 +308,12 @@ return [
         
         [
             'text' =>'Etudiant',
-            'url' =>'etudiant',
+            'url' =>'admin',
             'icon'        => 'fas fa-fw fa-graduation-cap',
         ],
         [
             'text' =>'Professeure',
-            'url' => 'test',
+            'url' => 'professeure',
             'icon'        => 'fas fa-fw fa-briefcase',
         ],
         [

@@ -12,9 +12,11 @@ class ProfesseurController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): Response
+    public function index(Professeur $professeur): Response
     {
-        //
+            $professeur = Professeur::paginate(6);
+            return response()->view('examen.professeur.index', compact('professeur'));
+        
     }
 
     /**
@@ -22,7 +24,8 @@ class ProfesseurController extends Controller
      */
     public function create(): Response
     {
-        //
+        return response()->view('examen.professeur.create');
+        
     }
 
     /**
@@ -30,31 +33,39 @@ class ProfesseurController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //
-    }
+            $request->validate([
+                'nom' =>'required',
+                'prenom' =>'required',
+                'email' =>'required',
+                'telephone' =>'required',
+            ]);
+            Professeur::create($request->post());
+            return redirect()->route('professeure.index')->with('message','ajout de professeure avec succes');
+        }
 
     /**
      * Display the specified resource.
      */
     public function show(Professeur $professeur): Response
     {
-        //
+        echo 'hii';
+        exit;
     }
-
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Professeur $professeur): Response
+    public function edit(Professeur $professeur,$id): Response
     {
-        //
+        $professeur = Professeur::find($id);
+        return response()->view('examen.professeur.edit', compact('professeur'));
     }
-
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Professeur $professeur): RedirectResponse
     {
-        //
+        $professeur->fill($request->post())->save(); 
+        return redirect()->route('professeure.index')->with('notice','The modification has been made');
     }
 
     /**
@@ -62,6 +73,7 @@ class ProfesseurController extends Controller
      */
     public function destroy(Professeur $professeur): RedirectResponse
     {
-        //
-    }
+        $professeur->delete(); 
+        // return redirect()->route('clients.index')->withSuccess('Student data has been deleted succesfuly'); 
+        return redirect()->route('professeure.index')->with('success','La suppression et affectue avec succes');     }
 }
