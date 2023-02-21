@@ -1,45 +1,47 @@
-
 @extends('adminlte::page')
 
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Liste des professeures</h1>
+    <h1 >Liste des local</h1>
 @stop
 
 @section('content')
 <div class="pull-right" style="display:flex; justify-content: flex-end">
-  <a href="{{route('professeur.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
+  <a href="{{route('local.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
 </div>
 <table class="table table-striped">
     <thead>
       <tr>
-   
-        <th>Nom et prénom</th>
-        <th>email</th>
-        <th>telephone</th>
+
+        <th>le nom </th>
+        <th>departement</th>
+        <th>examen </th>
         <th>action</th>
+
       </tr>
     </thead>
     <tbody>
-      @foreach ($professeur as $professeur)
+      @foreach ($local as $local)
       <tr>
-        <td>{{$professeur->nom.' '.$professeur->prenom}}</td>
-        <td>{{$professeur->email}}</td>
-        <td>{{$professeur->telephone}}</td>
+        <td>{{$local ->libelle}}</td>
+        <td>{{$local ->departement}}</td>
+        <td>{{$local ->examen_id}}</td>
         <td>
-          <form action="{{route('professeur.destroy',['professeur' => $professeur])}}"method="POST">
+          <form action="{{route('local.destroy', ['local' => $local])}}" method="POST">
             {{ csrf_field() }}
             {{method_field('DELETE')}}
             
-            <a href="{{ route('professeur.edit', ['professeur' => $professeur]) }}" class="btn btn-warning "><i class="fas fa-edit"></i></a>
+            <a href="{{ route('local.edit', ['local' => $local]) }}" class="btn btn-warning "><i class="fas fa-edit"></i></a>
             <button type="submit" class="btn btn-danger" style="color:black;"><i class="fas fa-trash"></i></button>
             
         </form>
         </td>
       </tr>
-          
       @endforeach
+   
+      
+     
     </tbody>
   </table>
 
@@ -52,4 +54,3 @@
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop
-

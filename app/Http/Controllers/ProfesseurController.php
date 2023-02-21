@@ -5,75 +5,74 @@ namespace App\Http\Controllers;
 use App\Models\Professeur;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class ProfesseurController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Professeur $professeur): Response
+
+    public function index()
     {
-            $professeur = Professeur::paginate(6);
-            return response()->view('examen.professeur.index', compact('professeur'));
-        
+    $professeur = Professeur::all();
+    return view('examen.professeur.index',[ 'professeur'=> $professeur]);
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): Response
+    public function create()
     {
-        return response()->view('examen.professeur.create');
-        
+
+        return view('examen.professeur.create');
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-            $request->validate([
-                'nom' =>'required',
-                'prenom' =>'required',
-                'email' =>'required',
-                'telephone' =>'required',
-            ]);
-            Professeur::create($request->post());
-            return redirect()->route('professeure.index')->with('message','ajout de professeure avec succes');
-        }
+        Professeur::create($request->post()); 
+        return redirect('professeur');
+    }
 
     /**
      * Display the specified resource.
      */
-    public function show(Professeur $professeur): Response
+    public function show(Professeur $professeur)
     {
-        echo 'hii';
-        exit;
+        // 
     }
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Professeur $professeur,$id): Response
+
+    public function edit(Professeur $professeur)
     {
-        $professeur = Professeur::find($id);
-        return response()->view('examen.professeur.edit', compact('professeur'));
+        return view('examen.professeur.edit', ['professeur' => $professeur]); 
+
     }
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Professeur $professeur): RedirectResponse
+    public function update(Request $request, Professeur $professeur)
     {
+        
         $professeur->fill($request->post())->save(); 
-        return redirect()->route('professeure.index')->with('notice','The modification has been made');
+        return redirect('/professeur');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Professeur $professeur): RedirectResponse
+    public function destroy(Professeur $professeur)
     {
-        $professeur->delete(); 
-        // return redirect()->route('clients.index')->withSuccess('Student data has been deleted succesfuly'); 
-        return redirect()->route('professeure.index')->with('success','La suppression et affectue avec succes');     }
+
+        $professeur->delete();
+        return redirect('/professeur');
+    }
 }
+

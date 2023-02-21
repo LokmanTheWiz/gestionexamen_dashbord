@@ -1,4 +1,3 @@
-
 @extends('adminlte::page')
 
 @section('title', 'Dashboard')
@@ -9,7 +8,7 @@
 
 @section('content')
 <div class="pull-right" style="display:flex; justify-content: flex-end">
-  <a href="{{route('professeur.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
+  <a href="{{route('surveillant.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
 </div>
 <table class="table table-striped">
     <thead>
@@ -18,21 +17,26 @@
         <th>Nom et prénom</th>
         <th>email</th>
         <th>telephone</th>
+        <th>local</th>
+        <th>matiere</th>
         <th>action</th>
       </tr>
     </thead>
     <tbody>
-      @foreach ($professeur as $professeur)
+      @foreach ($surveillant as $surveillant)
       <tr>
-        <td>{{$professeur->nom.' '.$professeur->prenom}}</td>
-        <td>{{$professeur->email}}</td>
-        <td>{{$professeur->telephone}}</td>
+        <td>{{$surveillant->nom.' '.$surveillant->prenom}}</td>
+        <td>{{$surveillant->email}}</td>
+        <td>{{$surveillant->telephone}}</td>
+        <td>{{$surveillant->local_id}}</td>
+        <td>{{$surveillant->matiere_id}}</td>
+        <td></td>
         <td>
-          <form action="{{route('professeur.destroy',['professeur' => $professeur])}}"method="POST">
+        <form action="{{route('surveillant.destroy',['surveillant' => $surveillant])}}"method="POST">
             {{ csrf_field() }}
             {{method_field('DELETE')}}
             
-            <a href="{{ route('professeur.edit', ['professeur' => $professeur]) }}" class="btn btn-warning "><i class="fas fa-edit"></i></a>
+            <a href="{{ route('surveillant.edit', ['surveillant' => $surveillant]) }}" class="btn btn-warning "><i class="fas fa-edit"></i></a>
             <button type="submit" class="btn btn-danger" style="color:black;"><i class="fas fa-trash"></i></button>
             
         </form>
@@ -52,4 +56,3 @@
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop
-
