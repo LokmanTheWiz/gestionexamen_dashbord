@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>ajout des surveillant</h1>
+    <h1 style="display: flex;justify-content: center;">ajout des surveillant</h1>
 @stop
 
 @section('content')
