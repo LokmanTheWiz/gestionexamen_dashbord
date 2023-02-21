@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EtudiantController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/test', function () {
-    return view('examen.test');
-});
-Route::get('/etudiant', function () {
-    return view('examen.etudiant.index');
-});
+// Route::get('/test', function () {
+//     return view('examen.test');
+// });
+// Route::get('/etudiant', function () {
+//     return view('examen.etudiant.index');
+// });
+Route::resource('etudiant', EtudiantController::class);
