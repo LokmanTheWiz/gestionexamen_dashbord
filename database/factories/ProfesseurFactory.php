@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class ProfFactory extends Factory
+class ProfesseurFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class ProfFactory extends Factory
     public function definition(): array
     {
         return [
-            'nom' => $this->faker->famillyname,
+            'nom' => $this->faker->name,
             'prenom' => $this->faker->firstname,
             'email' => $this->faker->unique()->safeEmail,
             'telephone' => $this->faker->phoneNumber,
