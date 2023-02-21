@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfesseurController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ProfesseurController;
 use App\Http\Controllers\SurveillantController;
 use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\LocalController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +37,5 @@ Route::resource('professeur', ProfesseurController::class);
 Route::resource('surveillant', SurveillantController::class);
 Route::resource('examen', ExamenController::class);
 Route::resource('local', LocalController::class);
+
 

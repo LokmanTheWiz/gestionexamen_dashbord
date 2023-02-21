@@ -9,5 +9,12 @@ class Module extends Model
 {
     use HasFactory;
     protected $fillable = ['matiere_id', 'nom']; 
-
+    public function matiere()
+    {
+        return $this->hasMany(Matiere::class);
+    }
+    public function semestre()
+    {
+        return $this->belongsTo(Semestre::class);
+    }
 }

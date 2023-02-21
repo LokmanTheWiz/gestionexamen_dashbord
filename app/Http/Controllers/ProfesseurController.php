@@ -11,10 +11,12 @@ class ProfesseurController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
     $professeur = Professeur::all();
     return view('examen.professeur.index',[ 'professeur'=> $professeur]);
+
     }
 
     /**
@@ -22,7 +24,9 @@ class ProfesseurController extends Controller
      */
     public function create()
     {
+
         return view('examen.professeur.create');
+
     }
 
     /**
@@ -41,15 +45,15 @@ class ProfesseurController extends Controller
     {
         // 
     }
-
     /**
      * Show the form for editing the specified resource.
      */
+
     public function edit(Professeur $professeur)
     {
         return view('examen.professeur.edit', ['professeur' => $professeur]); 
-    }
 
+    }
     /**
      * Update the specified resource in storage.
      */
@@ -58,6 +62,7 @@ class ProfesseurController extends Controller
         
         $professeur->fill($request->post())->save(); 
         return redirect('/professeur');
+
     }
 
     /**
@@ -65,7 +70,9 @@ class ProfesseurController extends Controller
      */
     public function destroy(Professeur $professeur)
     {
+
         $professeur->delete();
         return redirect('/professeur');
     }
 }
+
