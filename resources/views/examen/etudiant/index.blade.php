@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="pull-right" style="display:flex; justify-content: flex-end">
-  <a href="{{route('etudiant.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i> cree  nouveau etudiant </a>
+  <a href="{{route('etudiant.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
 </div>
 <table class="table table-striped">
     <thead>
@@ -35,10 +35,9 @@
             {{ csrf_field() }}
             {{method_field('DELETE')}}
             
-            <a href="{{ route('etudiant.edit', ['etudiant' => $etudiant]) }}" class="btn btn-secondary ">edite</a>
-            <a href="{{ route('etudiant.show', ['etudiant' => $etudiant]) }}" class="btn btn-light ">afficher </a>
-
-            <input type="submit" class="btn btn-danger " value="suprimer">
+            <a href="{{ route('etudiant.edit', ['etudiant' => $etudiant]) }}" class="btn btn-warning "><i class="fas fa-edit"></i></a>
+            <button type="submit" class="btn btn-danger" style="color:black;"><i class="fas fa-trash"></i></button>
+            
         </form>
         </td>
       </tr>

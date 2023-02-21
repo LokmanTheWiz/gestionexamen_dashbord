@@ -312,24 +312,30 @@ return [
         ],
         [
             'text' =>'Professeure',
-            'url' => 'test',
+            'url' => 'professeur',
             'icon'        => 'fas fa-fw fa-briefcase',
         ],
         [
             'text' =>'Surveillents',
-            'url' => 'admin',
+            'url' => 'surveillant',
             'icon'        => 'fas fa-fw fa-users',
         ],
         [
-            'text' =>'Universite',
-            'url' => 'admin',
+            'text' =>'Examens',
+            'url' => 'examen',
+            'icon'        => 'fas fa-fw fa-calendar',
+        ],
+        [
+            'text' =>'Local ',
+            'url' => 'local',
             'icon'        => 'fas fa-fw fa-university',
         ],
         [
-            'text' =>'Examens',
+            'text' =>'Gestion des Examens ',
             'url' => 'admin',
-            'icon'        => 'fas fa-fw fa-calendar',
+            'icon'        => 'fas fa-fw fa-university',
         ],
+       
         // [
         //     'text'        => 'pages',
         //     'url'         => 'admin',
