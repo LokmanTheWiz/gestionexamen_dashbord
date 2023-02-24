@@ -13,5 +13,9 @@ class Professeur extends Model
     {
         return $this->hasMany(Matiere::class);
     }
+    public function surveillant()
+    {
+        return $this->hasMany(Surveillant::class);
+    }
 
 }
