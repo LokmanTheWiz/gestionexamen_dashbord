@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Etudiant extends Model
 {
     use HasFactory;
-    protected $fillable = ['codeetudiant', 'nom','prenom', 'class','local_id', 'examen_id']; 
+    protected $fillable = ['codeetudiant', 'nom','prenom', 'class','local_id', 'examen_id','semestre_id']; 
     public function local()
     {
         return $this->belongsTo(Local::class);

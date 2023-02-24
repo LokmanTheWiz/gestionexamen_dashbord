@@ -51,7 +51,20 @@
     <select class="form-select form-select-lg mb-3" name="examen_id" id=""  >
         @foreach ($examen as $item)
         <option value="{{$item->id}}">
-            {{$item->dateexamen}}
+            {{$item->libelle}}
+        </option>
+            
+        @endforeach
+    </select>
+
+</div>
+<div class="form-group">
+    <label class="form-label">semestre</label>
+    <br>
+    <select class="form-select form-select-lg mb-3" name="semestre_id" id=""  >
+        @foreach ($semestre as $item)
+        <option value="{{$item->id}}">
+            {{$item->semestre}}
         </option>
             
         @endforeach

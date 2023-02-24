@@ -9,8 +9,8 @@
 @section('content')
 
 <select class="form-select" aria-label="Sélectionner une option">
-  @foreach ($semestre as $item)
-  <option value="{{$item->semestre}}">{{$item->semestre}} </option>
+  @foreach ($etudiant->semestre as $item)
+  <option value="{{$item->id}}">{{$item->semestre}} </option>
   @endforeach
 
 </select>
@@ -26,6 +26,7 @@
         <th>Fillière</th>
         <th>local</th>
         <th> le nom examen</th>
+        <th>semestre</th>
         <th>action </th>
 
       </tr>
@@ -38,6 +39,7 @@
         <td>{{$etudiant ->class}}</td>
         <td>{{$etudiant ->local_id}}</td>
         <td>{{$etudiant ->examen_id}}</td>
+        <td>{{$etudiant ->semestre_id}}</</td>
         <td>
           <form action="{{route('etudiant.destroy',['etudiant' => $etudiant])}}"method="POST">
             {{ csrf_field() }}

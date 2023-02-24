@@ -29,7 +29,7 @@
     <select name="examen_id" id=""  >
         @foreach ($examen as $item)
         <option value="{{$item->id}}">
-            {{$item->dateexamen}}
+            {{$item->libelle}}
         </option>
             
         @endforeach

@@ -16,9 +16,9 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-    $semestre = Semestre::all();
+    // $semestre = Semestre::all();
     $etudiant = Etudiant::all();
-    return view('examen.etudiant.index',[ 'etudiant'=> $etudiant,'semestre'=>$semestre]);
+    return view('examen.etudiant.index',[ 'etudiant'=> $etudiant]);
     }
 
     /**
@@ -27,6 +27,7 @@ class EtudiantController extends Controller
     public function create()
     {
         $local =  Local::all();
+        // $semestre = Semestre::all();
         $examen = Examen::all();
         return view('examen.etudiant.create',['local'=>$local,'examen'=>$examen]);
     }
@@ -56,6 +57,7 @@ class EtudiantController extends Controller
     public function edit(Etudiant $etudiant)
     {
         $local =  Local::all();
+        // $semestre = Semestre::all();
         $examen = Examen::all();
         return view('examen.etudiant.edit', ['etudiant' => $etudiant,'local'=>$local,'examen'=>$examen]); 
 
