@@ -4,10 +4,14 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Liste des professeures</h1>
+    <h1 style="display: flex;justify-content: center;">Liste des professeures</h1>
 @stop
 
 @section('content')
+
+
+
+
 <div class="pull-right" style="display:flex; justify-content: flex-end">
   <a href="{{route('professeur.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
 </div>

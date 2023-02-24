@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>edit le surveillant</h1>
+    <h1 style="display: flex;justify-content: center;">edit le surveillant</h1>
 @stop
 
 @section('content')

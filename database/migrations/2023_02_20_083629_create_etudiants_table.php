@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('class');
             $table->foreignId('local_id')->constrained('locals')->on('locals')->onDelete('cascade');
+            $table->foreignId('semestre_id')->constrained('semestres')->on('semestres')->onDelete('cascade');
             $table->foreignId('examen_id')->constrained('examens')->on('examens')->onDelete('cascade');
             $table->timestamps();
         });

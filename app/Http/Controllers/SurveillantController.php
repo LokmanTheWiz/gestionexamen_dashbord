@@ -35,8 +35,37 @@ class SurveillantController extends Controller
      */
     public function store(Request $request)
     {
-        surveillant::create($request->post()); 
+        $request->validate([
+            'nom' => 'required|max:255',
+            'prenom' => 'required|max:255',
+            'telephone' => 'required',
+            'email' => 'required|email',
+            
+        ]);
+        $surveillant = new Professeur();
+
+        // $professeur->nom = $request->input('nom');
+        // $professeur->prenom = $request->input('prenom');
+        // $professeur->telephone = $request->input('telephone');
+        $surveillant->email = $request->input('email'); // checkemailexists
+        $checkEmailExists = $this->checkEmailExists($surveillant->email);
+        
+        if ($checkEmailExists) {
+            
+            return redirect()->back()->with('error', 'The email already exists, please choose a different email.');
+        }
+        
+        // code to create new record in the database with the provided name
+        
+        surveillant::create($request->post());
         return redirect('surveillant');
+
+
+
+
+
+
+
     }
 
     /**

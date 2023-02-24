@@ -3,10 +3,18 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Liste des étudiant</h1>
+    <h1 style="display: flex;justify-content: center;">Liste des étudiant</h1>
 @stop
 
 @section('content')
+
+<select class="form-select" aria-label="Sélectionner une option">
+  @foreach ($semestre as $item)
+  <option value="{{$item->semestre}}">{{$item->semestre}} </option>
+  @endforeach
+
+</select>
+
 <div class="pull-right" style="display:flex; justify-content: flex-end">
   <a href="{{route('etudiant.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
 </div>
