@@ -28,10 +28,15 @@
                 </div>
                 <div class="form-group">
                     <label for="">email:</label>
-                    <input name="email"   class="form-control" value="{{ old('ville') }}">
-                    @error('ville')
+                    <input name="email"   class="form-control" value="{{ old('email') }}">
+                    @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
+                    @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="">Numero de telephone:</label>

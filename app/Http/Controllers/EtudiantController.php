@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Etudiant;
 use App\Models\Local;
 use App\Models\Examen;
+use App\Models\Semestre;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class EtudiantController extends Controller
      */
     public function index()
     {
+    $semestre = Semestre::all();
     $etudiant = Etudiant::all();
-    return view('examen.etudiant.index',[ 'etudiant'=> $etudiant]);
+    return view('examen.etudiant.index',[ 'etudiant'=> $etudiant,'semestre'=>$semestre]);
     }
 
     /**

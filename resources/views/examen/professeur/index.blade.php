@@ -8,6 +8,10 @@
 @stop
 
 @section('content')
+
+
+
+
 <div class="pull-right" style="display:flex; justify-content: flex-end">
   <a href="{{route('professeur.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
 </div>

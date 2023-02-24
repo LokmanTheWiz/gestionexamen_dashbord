@@ -11,6 +11,11 @@ class ProfesseurController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function checkEmailExists($email)
+{
+    $result = Professeur::where('email', $email)->exists();
+    return $result;
+}
 
     public function index()
     {
@@ -33,10 +38,35 @@ class ProfesseurController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        Professeur::create($request->post()); 
+    { 
+
+
+        $request->validate([
+            'nom' => 'required|max:255',
+            'prenom' => 'required|max:255',
+            'telephone' => 'required',
+            'email' => 'required|email',
+            
+        ]);
+        $professeur = new Professeur();
+
+        // $professeur->nom = $request->input('nom');
+        // $professeur->prenom = $request->input('prenom');
+        // $professeur->telephone = $request->input('telephone');
+        $professeur->email = $request->input('email'); // checkemailexists
+        $checkEmailExists = $this->checkEmailExists($professeur->email);
+        
+        if ($checkEmailExists) {
+            
+            return redirect()->back()->with('error', 'The email already exists, please choose a different email.');
+        }
+        
+        // code to create new record in the database with the provided name
+        
+        Professeur::create($request->post());
         return redirect('professeur');
     }
+    
 
     /**
      * Display the specified resource.
@@ -74,5 +104,7 @@ class ProfesseurController extends Controller
         $professeur->delete();
         return redirect('/professeur');
     }
+
 }
+
 
