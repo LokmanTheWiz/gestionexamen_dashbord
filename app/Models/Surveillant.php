@@ -10,8 +10,12 @@ class Surveillant extends Model
     use HasFactory;
     protected $fillable = ['nom', 'prenom','email', 'telephone','local_id', 'matiere_id']; 
 
-    function examen()
+    public function examen()
     {
         return $this->hasMany(Examen::class);
+    }
+    public function professeur()
+    {
+        return $this->hasMany(Professeur::class);
     }
 }
