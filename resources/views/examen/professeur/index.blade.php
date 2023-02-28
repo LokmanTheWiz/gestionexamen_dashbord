@@ -7,14 +7,23 @@
     <h1 style="display: flex;justify-content: center;">Liste des professeures</h1>
 @stop
 
+@section('head')
+@stop
 @section('content')
-
-
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<div class="input-group">
+  <div class="form-outline">
+          <input type="search" id="search" name="search" class="form-control"  />
+        </div>
+        <div>
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
 <div class="pull-right" style="display:flex; justify-content: flex-end">
-  <a href="{{route('professeur.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
-</div>
+  <a href="{{route('professeur.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i> Ajouté un nouveau  </a>
+</div>      
 <table class="table table-striped">
     <thead>
       <tr>
@@ -25,7 +34,7 @@
         <th>action</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="Content">
       @foreach ($professeur as $professeur)
       <tr>
         <td>{{$professeur->nom.' '.$professeur->prenom}}</td>
@@ -47,6 +56,22 @@
     </tbody>
   </table>
 
+  <script type="">
+    $('#search').on('keyup',function () 
+    {
+      $value = $(this).val();
+      $.ajax({
+        type:'get' , 
+        url : '{{URL::to('search')}}',
+        data : {'search':$value},
+        success:function(data)
+        {
+          console.log(data);
+          $('#Content').html(data);
+        }
+      });
+    })
+  </script>
 @stop
 
 @section('css')
