@@ -309,34 +309,33 @@ return [
         [
             'text' =>'Etudiant',
             'url' =>'etudiant',
-            'icon'        => 'fas fa-fw fa-graduation-cap',
+            'icon'=> 'fas fa-fw fa-graduation-cap',
         ],
         [
             'text' =>'Professeure',
             'url' => 'professeur',
-            'icon'        => 'fas fa-fw fa-briefcase',
+            'icon'=> 'fas fa-fw fa-briefcase',
         ],
         [
             'text' =>'Surveillents',
             'url' => 'surveillant',
-            'icon'        => 'fas fa-fw fa-users',
+            'icon'=> 'fas fa-fw fa-users',
         ],
         [
             'text' =>'Examens',
             'url' => 'examen',
-            'icon'        => 'fas fa-fw fa-calendar',
+            'icon'=> 'fas fa-fw fa-calendar',
         ],
         [
             'text' =>'Local ',
             'url' => 'local',
-            'icon'        => 'fas fa-fw fa-university',
+            'icon'=> 'fas fa-fw fa-map-marker-alt',
         ],
         [
             'text' =>'Gestion des Examens ',
             'url' => 'admin',
-            'icon'        => 'fas fa-fw fa-university',
+            'icon'=> 'fas fa-fw fa-landmark',
         ],
-       
         // [
         //     'text'        => 'pages',
         //     'url'         => 'admin',

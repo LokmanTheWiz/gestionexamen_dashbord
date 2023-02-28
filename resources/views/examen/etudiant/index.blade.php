@@ -8,12 +8,16 @@
 
 @section('content')
 
-<select class="form-select" aria-label="Sélectionner une option">
-  @foreach ($etudiant->semestre as $item)
-  <option value="{{$item->id}}">{{$item->semestre}} </option>
-  @endforeach
-
-</select>
+{{-- @foreach ($etudiant as $etudiant)
+<div class="form-group">
+                
+  <select class="form-select" aria-label="Sélectionner une option">
+      @foreach ($etudiant->semestre as $semestre)
+      <option value="{{$semestre->id}}">{{$semestre->semestre}} </option>
+      @endforeach
+    </select>
+  </div>
+@endforeach --}}
 
 <div class="pull-right" style="display:flex; justify-content: flex-end">
   <a href="{{route('etudiant.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
@@ -34,12 +38,12 @@
     <tbody>
       @foreach ($etudiant as $etudiant)
       <tr>
-        <td>{{$etudiant ->codeetudiant}}</td>
+        <td>{{$etudiant ->codeetudiant}} </td>
         <td>{{$etudiant ->nom.' '.$etudiant->prenom}}</td>
         <td>{{$etudiant ->class}}</td>
-        <td>{{$etudiant ->local_id}}</td>
-        <td>{{$etudiant ->examen_id}}</td>
-        <td>{{$etudiant ->semestre_id}}</</td>
+        <td>{{$etudiant ->local->libelle}}</td>
+        <td>{{$etudiant ->examen->libelle}}</td>
+        <td>{{$etudiant ->semestre->semestre}}</</td>
         <td>
           <form action="{{route('etudiant.destroy',['etudiant' => $etudiant])}}"method="POST">
             {{ csrf_field() }}
@@ -57,6 +61,7 @@
      
     </tbody>
   </table>
+
 
 @stop
 

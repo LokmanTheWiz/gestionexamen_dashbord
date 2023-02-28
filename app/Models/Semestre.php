@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Semestre extends Model
 {
     use HasFactory;
-    protected $fillable = ['anneescolaire', 'semestre','module_id']; 
+    protected $fillable = ['id','anneescolaire', 'semestre','module_id']; 
     public function module()
     {
-        return $this->hasMany(Module::class);
+        return $this->hasMany(Module::class,'module_id');
     }
     public function etudiant()
     {

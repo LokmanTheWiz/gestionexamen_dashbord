@@ -14,6 +14,7 @@
 
         <form action="{{ route('etudiant.store') }}" method="POST">
             @csrf
+
                 <div class="form-group">
                     <label class="form-label">Code Etudiant </label>
                     <input type="text" class="form-control" name="codeetudiant" placeholder="le code de etudiant">
@@ -50,6 +51,18 @@
                         @foreach ($examen as $item)
                         <option value="{{$item->id}}">
                             {{$item->dateexamen}}
+                        </option>
+                            
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">semestre</label>
+                    <br>
+                    <select class="form-select form-select-lg mb-3" name="semestre_id" id=""  >
+                        @foreach ($semestre as $item)
+                        <option value="{{$item->id}}">
+                            {{$item->semestre}}
                         </option>
                             
                         @endforeach

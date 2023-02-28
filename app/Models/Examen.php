@@ -12,7 +12,7 @@ class Examen extends Model
 
     public function matiere()
     {
-        return $this->hasMany(Matiere::class);
+        return $this->belongsTo(Matiere::class,'matiere_id');
     }
     public function surveillent()
     {

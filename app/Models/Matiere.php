@@ -12,7 +12,7 @@ class Matiere extends Model
 
     public function professeur()
     {
-        return $this->hasMany(Professeur::class);
+        return $this->hasMany(Professeur::class,'professeur_id');
     }
     public function examen()
     {

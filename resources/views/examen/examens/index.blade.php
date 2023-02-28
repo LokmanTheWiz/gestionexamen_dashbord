@@ -25,7 +25,7 @@
       <tr>
         <td>{{$examen ->libelle}}</td>
         <td>{{$examen ->dateexamen}}</td>
-        <td>{{$examen ->matiere_id}}</td>
+        <td>{{$examen ->matiere->nom}}</td>
         <td>
             <form action="{{route('examen.destroy', ['examan' => $examen])}}" method="POST">
             {{ csrf_field() }}

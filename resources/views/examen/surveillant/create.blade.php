@@ -25,6 +25,12 @@
     <label class="form-label">Email</label>
     <input  type="email" class="form-control" name="email" placeholder=" email de surveillant">
 </div>
+@if (session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
+</div>
 <div class="mb-3">
     <label class="form-label">telephone</label>
     <input   class="form-control" name="telephone" placeholder=" telephone de surveillant">

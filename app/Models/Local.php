@@ -11,7 +11,7 @@ class Local extends Model
     protected $fillable = ['examen_id', 'departement','libelle']; 
     public function examen()
     {
-        return $this->hasMany(Examen::class);
+        return $this->belongsTo(Examen::class,'examen_id');
     }
     public function etudiant()
     {

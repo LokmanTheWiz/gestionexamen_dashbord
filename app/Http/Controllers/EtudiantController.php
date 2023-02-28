@@ -27,9 +27,9 @@ class EtudiantController extends Controller
     public function create()
     {
         $local =  Local::all();
-        // $semestre = Semestre::all();
+        $semestre = Semestre::all();
         $examen = Examen::all();
-        return view('examen.etudiant.create',['local'=>$local,'examen'=>$examen]);
+        return view('examen.etudiant.create',['local'=>$local,'examen'=>$examen,'semestre'=>$semestre]);
     }
 
     /**

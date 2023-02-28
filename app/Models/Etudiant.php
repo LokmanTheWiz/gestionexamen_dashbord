@@ -11,15 +11,16 @@ class Etudiant extends Model
     protected $fillable = ['codeetudiant', 'nom','prenom', 'class','local_id', 'examen_id','semestre_id']; 
     public function local()
     {
-        return $this->belongsTo(Local::class);
+        return $this->belongsTo(Local::class,'local_id');
     }
-    public function examen()
+    #khassni nteakkd b hadii wach hassmny wala belongsTo
+    public function examen()#hasMany
     {
-        return $this->hasMany(Examen::class);
+        return $this->belongsTo(Examen::class,'examen_id');
     }
     public function semestre()
     {
-        return $this->belongsTo(Semestre::class);
+        return $this->belongsTo(Semestre::class,'semestre_id');
     }
 
 }

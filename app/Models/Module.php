@@ -11,7 +11,7 @@ class Module extends Model
     protected $fillable = ['matiere_id', 'nom']; 
     public function matiere()
     {
-        return $this->hasMany(Matiere::class);
+        return $this->hasMany(Matiere::class,'matiere_id');
     }
     public function semestre()
     {

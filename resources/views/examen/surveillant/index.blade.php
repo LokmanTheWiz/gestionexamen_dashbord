@@ -30,7 +30,6 @@
         <td>{{$surveillant->telephone}}</td>
         <td>{{$surveillant->local_id}}</td>
         <td>{{$surveillant->matiere_id}}</td>
-        <td></td>
         <td>
         <form action="{{route('surveillant.destroy',['surveillant' => $surveillant])}}"method="POST">
             {{ csrf_field() }}

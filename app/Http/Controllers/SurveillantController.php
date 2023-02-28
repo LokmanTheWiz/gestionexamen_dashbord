@@ -13,6 +13,11 @@ class SurveillantController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function checkEmailExists($email)
+    {
+        $result = Surveillant::where('email', $email)->exists();
+        return $result;
+    }
     public function index() 
     {
         $surveillant = Surveillant::all();
@@ -42,7 +47,7 @@ class SurveillantController extends Controller
             'email' => 'required|email',
             
         ]);
-        $surveillant = new Professeur();
+        $surveillant = new Surveillant();
 
         // $professeur->nom = $request->input('nom');
         // $professeur->prenom = $request->input('prenom');
