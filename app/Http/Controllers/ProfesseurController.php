@@ -12,17 +12,56 @@ class ProfesseurController extends Controller
      * Display a listing of the resource.
      */
     public function checkEmailExists($email)
-{
-    $result = Professeur::where('email', $email)->exists();
-    return $result;
-}
+    {
+        $result = Professeur::where('email', $email)->exists();
+        return $result;
+    }
 
+    public function search(Professeur $professeur, Request $request)
+    {
+        $output = "null";
+        $professeur = Professeur::where('nom', 'Like', '%'.$request
+        ->search.'%')->orWhere('prenom', 'like', '%'.$request
+        ->search.'%')->get();
+        foreach($professeur as $prof)
+        {
+            $output .=
+            '<tr>
+                <td>
+                    '.$prof->nom.''.$prof->prenom.'
+                </td>
+                <td>
+                    '.$prof->email.'
+                </td>
+                <td>
+                    '.$prof->telephone.'
+                </td>
+                <td>
+            <form action="'.route('professeur.destroy',['professeur' => $prof]).'" method="POST">
+                '.csrf_field().'
+                '.method_field('DELETE').'
+                <a href="'.route('professeur.edit', ['professeur' => $prof]).'" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                <button type="submit" class="btn btn-danger" style="color:black;"><i class="fas fa-trash"></i></button>
+            </form>
+        </td>
+            </tr>';
+        }
+        return response($output);
+    }
     public function index()
     {
-    $professeur = Professeur::all();
-    return view('examen.professeur.index',[ 'professeur'=> $professeur]);
+        $professeur = Professeur::all();
+        return view('examen.professeur.index',compact('professeur'));
 
     }
+    // public function search()
+    // {
+    //     $query = $request->input('query');
+
+    //     $results = Professeur::where('nom', 'LIKE', "%$query%")->get();
+
+    //     return view('examen.professeur.index', ['results' => $results]);
+    // }
 
     /**
      * Show the form for creating a new resource.

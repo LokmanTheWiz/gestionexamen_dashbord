@@ -32,16 +32,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     return view('examen.etudiant.index');
 // });
 Route::resource('etudiant', EtudiantController::class);
-// Route::resource('professeur', ProfesseurController::class);
+Route::resource('professeur', ProfesseurController::class);
 Route::resource('surveillant', SurveillantController::class);
 Route::resource('examen', ExamenController::class);
 Route::resource('local', LocalController::class);
 
+Route::get('search',[ProfesseurController::class,'search']);
+Route::get('select',[ProfesseurController::class,'select']);
 
 
-Route::get('/professeur',  [ProfesseurController::class, 'index'])->name('index');
-Route::post('/professeur', [ProfesseurController::class, 'store'])->name('store');
-Route::get('/professeur/create', [ProfesseurController::class, 'create'])->name('create');
-Route::get('/professeur/{professeur}/edite', [ProfesseurController::class, 'edite'])->name('edite');
-Route::put('/professeur/{professeur}',  [ProfesseurController::class, 'update'])->name('update');
-Route::delete('/professeur/{professeur}', [ProfesseurController::class, 'destroy'])->name('destroy');

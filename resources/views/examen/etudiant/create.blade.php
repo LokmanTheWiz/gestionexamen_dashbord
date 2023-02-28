@@ -73,15 +73,15 @@
                 <a href="{{route('etudiant.index')}}" class="btn btn-warning">go back</a>
                 </div>
                 </form>
-                        </div>
-                    </div>
-                </div>
-@stop
-
-@section('css')
+            </div>
+        </div>
+    </div>
+    
+    @stop
+    @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
+    @stop
+    
+    @section('js')
     <script> console.log('Hi!'); </script>
-@stop
+    @stop
