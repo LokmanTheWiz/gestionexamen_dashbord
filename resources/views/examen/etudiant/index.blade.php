@@ -18,11 +18,36 @@
     </select>
   </div>
 @endforeach --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+{{-- 
+<select class="form-select" aria-label="Default select example" name="semestre_id" id="select_semestre" type="select">
+  <option value="                            ">
+  @foreach($semestre as $semester)
+  <option value="{{$semester->id}}" name="semestres">
+  {{$semester->semestre}}
+  </option> 
+  @endforeach
+</select> --}}
+
+
+
+<form action="{{ route('etudiant.index') }}" method="GET">
+  <select name="semestre_id">
+      <option value="">All Semestres</option>
+      @foreach ($semestres as $semestre)
+          <option value="{{ $semestre->id }}" {{ request()->get('semestre_id') == $semestre->id ? 'selected' : '' }}>
+              {{ $semestre->semestre }}
+          </option>
+      @endforeach
+  </select>
+  <button type="submit">Filter</button>
+</form>
+
 
 <div class="pull-right" style="display:flex; justify-content: flex-end">
   <a href="{{route('etudiant.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
 </div>
-<table class="table table-striped">
+<table class="table table-striped" id="Content">
     <thead>
       <tr>
         <th>Code étudiant</th>
@@ -56,13 +81,25 @@
         </td>
       </tr>
       @endforeach
-   
-      
-     
     </tbody>
   </table>
 
-
+  <script type="">
+    $('#select_semestre').on('change',function () 
+    {
+      $value = $(this).val();
+      $.ajax({
+        type:'get' , 
+        url : '{{URL::to('select')}}',
+        data : {'value':$value},
+        success:function(data)
+        {
+          console.log(data);
+          $('#Content').html(data);
+        }
+      });
+    })
+  </script>
 @stop
 
 @section('css')
