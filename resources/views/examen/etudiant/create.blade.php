@@ -68,14 +68,15 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group" style="display: flex;justify-content: center;">
-                <input type="submit" class="btn btn-primary"  value="envoyer">
-                <a href="{{route('etudiant.index')}}" class="btn btn-warning">go back</a>
-                </div>
                 <div class="form-group">
                     <label class="form-label">model no validé </label>
                     <input type="text" class="form-control" name="module_no_valider" >
                 </div>
+                <div class="form-group" style="display: flex;justify-content: center;">
+                <input type="submit" class="btn btn-primary"  value="envoyer">
+                <a href="{{route('etudiant.index')}}" class="btn btn-warning">go back</a>
+                </div>
+               
                 </form>
             </div>
         </div>

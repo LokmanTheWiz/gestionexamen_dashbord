@@ -22,6 +22,20 @@
         </button>
       </div>
     </div>
+
+      <form action="{{route('professeur.import')}}" method="POST" enctype="multipart/form-data">
+          @csrf
+          <input type="file" name="file" class="form-control">
+          <button class="btn btn-info" class="form-control"> Upload</button>
+      </form>
+      <a href="{{route('professeur.pdf')}}">
+          <button class='btn btn-primary'>Generate PDF</button>
+      </a>
+      &nbsp;
+      <a href="{{route('professeur.export')}}">
+          <button class='btn btn-success'>Excel</button>
+      </a>
+
 <div class="pull-right" style="display:flex; justify-content: flex-end">
   <a href="{{route('professeur.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i> Ajouté un nouveau  </a>
 </div>      

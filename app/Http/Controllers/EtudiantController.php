@@ -14,11 +14,15 @@ class EtudiantController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-    // $semestre = Semestre::all();
-    $etudiant = Etudiant::all();
-    return view('examen.etudiant.index',[ 'etudiant'=> $etudiant]);
+    $etudiant = Etudiant::with('semestre')->when($request->semestre_id, 
+    function ($query, $semestre_id) {
+        return $query->where('semestre_id', $semestre_id);
+    })->get();
+    $semestres = Semestre::all();
+
+    return view('examen.etudiant.index', compact('etudiant', 'semestres'));
     }
 
     /**

@@ -13,7 +13,7 @@ class Etudiant extends Model
     {
         return $this->belongsTo(Local::class,'local_id');
     }
-    #khassni nteakkd b hadii wach hassmny wala belongsTo
+    #khassni nteakkd b hadii wach hasmany wala belongsTo
     public function examen()#hasMany
     {
         return $this->belongsTo(Examen::class,'examen_id');

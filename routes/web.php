@@ -38,7 +38,10 @@ Route::resource('examen', ExamenController::class);
 Route::resource('local', LocalController::class);
 
 Route::get('search',[ProfesseurController::class,'search']);
-Route::get('select',[ProfesseurController::class,'select']);
+Route::get('select',[EtudiantController::class,'select']);
 
-Route::get('/export-excel',[EtudiantController::class,'export']);
-Route::post('/import-excel',[EtudiantController::class,'import']);
+
+Route::post('professeur-import',[ProfesseurController::class,'import'])->name('professeur.import');
+Route::get('professeur-export',[ProfesseurController::class,'export'])->name('professeur.export');
+Route::get('generatepdf',[ProfesseurController::class,'generatepdf'])->name('professeur.pdf');
+
