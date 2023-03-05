@@ -19,9 +19,33 @@
   </div>
 @endforeach --}}
 
+
+
+
+
+
+<div class="container mt-5">
+  <form action="" method="post" enctype="multipart/form-data">
+    @csrf
+    <input type="file" name="file" class="form-control">
+    <button class="btn btn-info" class="form-controle">upload</button>
+  </form>
+</div>
+<div style="display:flex; justify-content: flex-end">
+  <a href="">
+    <button class="btn btn-primary">pdf</button>
+  </a>
+  <a href="">
+    <button class="btn btn-success">excel</button>
+  </a>
+</div>
+<br>
+
+
 <div class="pull-right" style="display:flex; justify-content: flex-end">
   <a href="{{route('etudiant.create')}}" class="btn btn-light " style="list-style:none"><i class="fas fa-plus"></i>  </a>
 </div>
+
 <table class="table table-striped">
     <thead>
       <tr>
@@ -31,6 +55,7 @@
         <th>local</th>
         <th> le nom examen</th>
         <th>semestre</th>
+        <th>module no validé</th>
         <th>action </th>
 
       </tr>
@@ -44,6 +69,7 @@
         <td>{{$etudiant ->local->libelle}}</td>
         <td>{{$etudiant ->examen->libelle}}</td>
         <td>{{$etudiant ->semestre->semestre}}</</td>
+        <td>{{$etudiant ->module_no_valider}}</</td>
         <td>
           <form action="{{route('etudiant.destroy',['etudiant' => $etudiant])}}"method="POST">
             {{ csrf_field() }}

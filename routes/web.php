@@ -40,4 +40,5 @@ Route::resource('local', LocalController::class);
 Route::get('search',[ProfesseurController::class,'search']);
 Route::get('select',[ProfesseurController::class,'select']);
 
-
+Route::get('/export-excel',[EtudiantController::class,'export']);
+Route::post('/import-excel',[EtudiantController::class,'import']);

@@ -81,4 +81,11 @@ class EtudiantController extends Controller
         $etudiant->delete();
         return redirect('/etudiant');
     }
+    // public function export(){
+
+    // }
+    // public function import(){
+        
+    // }
+
 }
