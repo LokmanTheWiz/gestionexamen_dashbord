@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Examen;
+use App\Models\Module;
 use App\Models\Matiere;
+use App\Models\Semestre;
 use Illuminate\Http\Request;
 
 
@@ -17,14 +19,32 @@ class ExamenController extends Controller
         $examen = Examen::all();
         return view('examen.examens.index',[ 'examan'=> $examen]);
     }
+    public function fetchmodule(Request $request)
+    {
+        $module = Module::whereHas('semestre', function ($query) {
+            $query->whereId(request()->input('semestre', 0));
+        })->pluck('semestre', 'id');
 
+        return response()->json($cities);
+    }
+    public function fetchmatiere(Request $request)
+    {
+        $module = Module::whereHas('semestre', function ($query) {
+            $query->whereId(request()->input('semestre', 0));
+        })->pluck('nom', 'id');
+
+        return response()->json($cities);
+    }
+    
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
+        
         $matiere = Matiere::all();
-        return view('examen.examens.create',['matiere'=>$matiere]);
+        $semestre = Semestre::all();
+        return view('examen.examens.create',compact('matiere','semestre'));
 
     }
 

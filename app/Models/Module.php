@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Module extends Model
 {
     use HasFactory;
-    protected $fillable = ['matiere_id', 'nom']; 
+    protected $fillable = [ 'nom','semestre_id']; 
     public function matiere()
     {
         return $this->hasMany(Matiere::class,'matiere_id');

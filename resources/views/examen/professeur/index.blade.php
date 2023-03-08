@@ -57,23 +57,23 @@
         <td>{{$professeur->email}}</td>
         <td>{{$professeur->telephone}}</td>
         <td>
-          {{-- <form action="{{route('professeur.destroy',['professeur' => $professeur])}}"method="POST">
+          <form action="{{route('professeur.destroy',['professeur' => $professeur])}}"method="POST">
             {{ csrf_field() }}
             {{method_field('DELETE')}}
             
             <a href="{{ route('professeur.edit', ['professeur' => $professeur]) }}" class="btn btn-warning "><i class="fas fa-edit"></i></a>
             <button type="submit" class="btn btn-danger" style="color:black;"><i class="fas fa-trash"></i></button>
             
-        </form> --}}
+        </form>
 
 
-        <form action="{{url('/professeur/'.$professeur->professeur)}}"method="POST">
+        {{-- <form action="{{url('/professeur/'.$professeur->professeur)}}"method="POST">
           {{ csrf_field() }}
           {{method_field('DELETE')}}
           <a href="{{ url('professeur/'.$professeur->professeur.'/edite') }}" class="btn btn-warning "><i class="fas fa-edit"></i></a>
           <button type="submit" class="btn btn-danger" style="color:black;"><i class="fas fa-trash"></i></button>
       </form>
-        </td>
+        </td> --}}
       </tr>
           
       @endforeach
@@ -93,6 +93,7 @@
           console.log(data);
           $('#Content').html(data);
         }
+
       });
     })
   </script>

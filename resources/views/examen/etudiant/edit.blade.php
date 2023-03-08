@@ -67,6 +67,10 @@
     </select>
 
 </div>
+<div class="form-group">
+    <label class="form-label">model no validé </label>
+    <input type="text" class="form-control" name="module_no_valider" value="{{ $etudiant->module_no_valider }}" >
+</div>
 
 <div class="mb-3" style="display: flex;justify-content: center;">
     <input type="submit" class="btn btn-primary"  value="modifier">
