@@ -322,8 +322,8 @@ return [
             'icon'=> 'fas fa-fw fa-users',
         ],
         [
-            'text' =>'Examens',
-            'url' => 'examen',
+            'text' =>'Modules',
+            'url' => 'modul',
             'icon'=> 'fas fa-fw fa-calendar',
         ],
         [
@@ -332,9 +332,9 @@ return [
             'icon'=> 'fas fa-fw fa-map-marker-alt',
         ],
         [
-            'text' =>'Gestion des Examens ',
-            'url' => 'admin',
-            'icon'=> 'fas fa-fw fa-landmark',
+            'text' =>'Examens',
+            'url' => 'examen',
+            'icon'=> 'fas fa-fw fa-calendar',
         ],
         // [
         //     'text'        => 'pages',

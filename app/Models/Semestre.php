@@ -17,4 +17,8 @@ class Semestre extends Model
     {
         return $this->hasMany(Etudiant::class);
     }
+    public function examen()
+    {
+        return $this->belongsTo(examen::class);
+    }
 }
