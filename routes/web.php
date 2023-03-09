@@ -43,7 +43,15 @@ Route::get('search',[ProfesseurController::class,'search']);
 Route::get('select',[EtudiantController::class,'select']);
 
 
-Route::post('professeur-import',[ProfesseurController::class,'import'])->name('professeur.import');
-Route::get('professeur-export',[ProfesseurController::class,'export'])->name('professeur.export');
-Route::get('generatepdf',[ProfesseurController::class,'generatepdf'])->name('professeur.pdf');
 
+
+Route::controller(EtudiantController::class)->group(function(){
+    Route::get('etudiant-export', 'export')->name('etudiant.export');
+    Route::post('etudiant-import', 'import')->name('etudiant.import');
+});
+
+
+Route::controller(ProfesseurController::class)->group(function(){
+    Route::get('professeur-export', 'export')->name('professeur.export');
+    Route::post('professeur-import', 'import')->name('professeur.import');
+});

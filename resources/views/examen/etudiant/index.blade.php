@@ -44,12 +44,21 @@
 </form>
 
 
+<form action="{{ route('etudiant.import') }}" method="POST" enctype="multipart/form-data">
+  @csrf
+  <input type="file" name="file" class="form-control">
+  <br>
+  <button class="btn btn-primary">Import User Data</button>
+</form>
+
+<a class="btn btn-danger float-end" href="{{ route('etudiant.export') }}">Export User Data</a>
 
 
 
 
 
-<div class="container mt-5">
+
+{{-- <div class="container mt-5">
   <form action="" method="post" enctype="multipart/form-data">
     @csrf
     <input type="file" name="file" class="form-control">
@@ -63,7 +72,7 @@
   <a href="">
     <button class="btn btn-success">excel</button>
   </a>
-</div>
+</div> --}}
 <br>
 
 
