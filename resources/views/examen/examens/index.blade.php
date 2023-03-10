@@ -32,7 +32,7 @@
 <body>
 
 <main>
-  <table>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>Heures</th>
@@ -149,9 +149,7 @@
         </td>
       </tr>
       @endforeach
-   
       
-     
     </tbody>
   </table>
 

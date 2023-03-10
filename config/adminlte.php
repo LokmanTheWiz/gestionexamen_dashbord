@@ -331,11 +331,11 @@ return [
             'url' => 'local',
             'icon'=> 'fas fa-fw fa-map-marker-alt',
         ],
-        [
-            'text' =>'Gestion des Examens ',
-            'url' => 'admin',
-            'icon'=> 'fas fa-fw fa-landmark',
-        ],
+        // [
+        //     'text' =>'Gestion des Examens ',
+        //     'url' => 'admin',
+        //     'icon'=> 'fas fa-fw fa-landmark',
+        // ],
         // [
         //     'text'        => 'pages',
         //     'url'         => 'admin',
