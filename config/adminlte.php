@@ -323,7 +323,7 @@ return [
         ],
         [
             'text' =>'Modules',
-            'url' => 'modul',
+            'url' => 'module',
             'icon'=> 'fas fa-fw fa-calendar',
         ],
         [

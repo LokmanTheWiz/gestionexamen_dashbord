@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Exports\EtudiantExport;
+use App\Imports\EtudiantImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 use App\Models\Etudiant;
 use App\Models\Local;
@@ -11,6 +14,9 @@ use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth'); 
+    }
     /**
      * Display a listing of the resource.
      */
@@ -85,11 +91,18 @@ class EtudiantController extends Controller
         $etudiant->delete();
         return redirect('/etudiant');
     }
-    // public function export(){
-
-    // }
-    // public function import(){
-        
-    // }
+    public function export() 
+    {
+        return Excel::download(new EtudiantExport, 'Etudiant.xlsx');
+    }
+       
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function import() 
+    {
+        Excel::import(new EtudiantImport,request()->file('file'));
+        return back();
+    }
 
 }

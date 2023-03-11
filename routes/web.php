@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfesseurController;
 use App\Http\Controllers\SurveillantController;
 use App\Http\Controllers\ExamenController;
 use App\Http\Controllers\LocalController;
+use App\Http\Controllers\ModuleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,14 +37,22 @@ Route::resource('professeur', ProfesseurController::class);
 Route::resource('surveillant', SurveillantController::class);
 Route::resource('examen', ExamenController::class);
 Route::resource('local', LocalController::class);
+Route::resource('module', ModuleController::class);
 
 Route::get('search',[ProfesseurController::class,'search']);
 Route::get('select',[EtudiantController::class,'select']);
 
 
-// Route::post('professeur-import',[ProfesseurController::class,'import'])->name('professeur.import');
-// Route::get('professeur-export',[ProfesseurController::class,'export'])->name('professeur.export');
-// Route::get('generatepdf',[ProfesseurController::class,'generatepdf'])->name('professeur.pdf');
 
-Route::get('fetch_module',[ExamenController::class,'fetchmodule'])->name('module.index');
-Route::get('fetch_matiere',[ExamenController::class,'fetchmatiere'])->name('matiere.index');
+
+
+Route::controller(EtudiantController::class)->group(function(){
+    Route::get('etudiant-export', 'export')->name('etudiant.export');
+    Route::post('etudiant-import', 'import')->name('etudiant.import');
+});
+
+
+Route::controller(ProfesseurController::class)->group(function(){
+    Route::get('professeur-export', 'export')->name('professeur.export');
+    Route::post('professeur-import', 'import')->name('professeur.import');
+});

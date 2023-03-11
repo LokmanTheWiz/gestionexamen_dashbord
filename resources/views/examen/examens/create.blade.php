@@ -24,8 +24,10 @@
     <input type="date" class="form-control" name="dateexamen" placeholder=" date de examen">
 </div>
 <div class="mb-3">
-    <label class="form-label"> date de examen </label>
+    <label class="form-label"> temp de examen </label>
     <input type="time" class="form-control" name="timeexam" placeholder=" date de examen">
+</div>
+
 
 
 {{-- ---------------------------Semester selection----------------------------- --}}
@@ -51,7 +53,7 @@
 </div> --}}
 {{-- ---------------------------matiere selection----------------------------- --}}
 
-</div>
+
 
 {{-- ---------------------------end selection----------------------------- --}}
 

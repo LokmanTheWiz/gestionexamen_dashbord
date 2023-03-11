@@ -17,5 +17,9 @@ class Professeur extends Model
     {
         return $this->hasMany(Surveillant::class);
     }
+    public function examen()
+    {
+        return $this->belongsTo(Examen::class);
+    }
 
 }

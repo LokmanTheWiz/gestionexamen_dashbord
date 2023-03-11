@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 
 class ExamenController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth'); 
+    }
     /**
      * Display a listing of the resource.
      */
@@ -18,22 +21,6 @@ class ExamenController extends Controller
     {
         $examen = Examen::all();
         return view('examen.examens.index',[ 'examan'=> $examen]);
-    }
-    public function fetchmodule(Request $request)
-    {
-        $module = Module::whereHas('semestre', function ($query) {
-            $query->whereId(request()->input('semestre', 0));
-        })->pluck('semestre', 'id');
-
-        return response()->json($cities);
-    }
-    public function fetchmatiere(Request $request)
-    {
-        $module = Module::whereHas('semestre', function ($query) {
-            $query->whereId(request()->input('semestre', 0));
-        })->pluck('nom', 'id');
-
-        return response()->json($cities);
     }
     
     /**
