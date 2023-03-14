@@ -8,15 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Examen extends Model
 {
     use HasFactory;
-    protected $fillable = ['matiere_id','libelle', 'dateexamen']; 
-
+    protected $fillable = ['matiere_id','libelle', 'dateexamen','tempexamen','semestre_id','module_id','professeur_id','surveillant_id','local_id']; 
+    protected $casts = [
+        'surveillant_id' => 'array',
+    ];
     public function matiere()
     {
         return $this->belongsTo(Matiere::class,'matiere_id');
     }
-    public function surveillent()
+    public function surveillant()
     {
-        return $this->hasMany(Surveillent::class);
+        return $this->hasMany(Surveillant::class);
     }
     public function etudiant()
     {

@@ -1,7 +1,7 @@
 <div>
     <div class="form-group">
         <label for="semestre" >{{ __('Semestre') }}</label>
-            <select wire:model="selectedSemestre" class="form-control">
+            <select wire:model="selectedSemestre" class="form-control" name="semestre_id">
                 <option value="" selected>Selectionner le semestre</option>
                 @foreach ($semestre as $item)
                 <option value="{{$item->id}}">
@@ -14,7 +14,7 @@
     @if (!is_null($selectedSemestre))
         <div class="form-group">
             <label for="module">{{ __('Module') }}</label>
-                <select wire:model="selectedModule" class="form-control">
+                <select wire:model="selectedModule" class="form-control" name="module_id">
                     <option value="" selected>Selectioner le module</option>
                     @foreach ($module as $item)
                     <option value="{{$item->id}}">
