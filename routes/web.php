@@ -56,3 +56,7 @@ Route::controller(ProfesseurController::class)->group(function(){
     Route::get('professeur-export', 'export')->name('professeur.export');
     Route::post('professeur-import', 'import')->name('professeur.import');
 });
+
+// routes/web.php
+
+Route::get('/search-prof', [ExamenController::class,'search'])->name('search-prof');

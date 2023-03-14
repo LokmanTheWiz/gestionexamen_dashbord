@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('semestre_id')->constrained('semestres')->on('semestres')->onDelete('cascade');
             $table->foreignId('module_id')->constrained('modules')->on('modules')->onDelete('cascade');
             $table->foreignId('matiere_id')->constrained('matieres')->on('matieres')->onDelete('cascade');
-            $table->foreignId('professeur_id')->constrained('professeurs')->on('professeurs')->onDelete('cascade');
+            $table->foreignId('professeur_id')->nullable()->constrained('professeurs')->on('professeurs')->onDelete('cascade');
             $table->foreignId('surveillant_id')->constrained('surveillants')->on('surveillants')->onDelete('cascade');
             $table->foreignId('local_id')->constrained('locals')->on('locals')->onDelete('cascade');
             $table->timestamps();

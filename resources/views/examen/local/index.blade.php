@@ -26,7 +26,7 @@
       <tr>
         <td>{{$local ->libelle}}</td>
         <td>{{$local ->departement}}</td>
-        <td>{{$local ->examen->libelle}}</td>
+        {{-- <td>{{$local ->examen->libelle}}</td> --}}
         <td>
           <form action="{{route('local.destroy', ['local' => $local])}}" method="POST">
             {{ csrf_field() }}
