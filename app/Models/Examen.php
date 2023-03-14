@@ -26,5 +26,13 @@ class Examen extends Model
     {
         return $this->belongsToMany(Local::class);
     }
+    public function semestre()
+    {
+        return $this->belongsTo(semestre::class);
+    }
+    public function professeur()
+    {
+        return $this->hasMany(Professeur::class);
+    }
 
 }

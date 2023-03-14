@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('libelle');
             $table->string('departement');
-            $table->foreignId('examen_id')->constrained('examens')->on('examens')->onDelete('cascade');
             $table->timestamps();
         });
     }

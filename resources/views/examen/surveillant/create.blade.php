@@ -14,6 +14,19 @@
 
 
 <div class="mb-3">
+    {{-- <label class="form-label"> professeure </label> --}}
+    <label class="form-label">Selectionner le professeure</label>
+    <br>
+    <select class="form-control" name="professeur_id" id="semestre"  >
+        @foreach ($prof as $item)
+        <option value="{{$item->id}}">
+            {{$item->nom}}{{$item->prenom}}
+        </option>
+            
+        @endforeach
+    </select>
+</div>
+<div class="mb-3">
     <label class="form-label"> Nom </label>
     <input type="text" class="form-control" name="nom" placeholder=" nom de surveillant">
 </div>

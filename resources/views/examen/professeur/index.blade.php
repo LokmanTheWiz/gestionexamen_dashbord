@@ -93,6 +93,7 @@
           console.log(data);
           $('#Content').html(data);
         }
+
       });
     })
   </script>

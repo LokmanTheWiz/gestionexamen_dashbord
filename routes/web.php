@@ -45,6 +45,7 @@ Route::get('select',[EtudiantController::class,'select']);
 
 
 
+
 Route::controller(EtudiantController::class)->group(function(){
     Route::get('etudiant-export', 'export')->name('etudiant.export');
     Route::post('etudiant-import', 'import')->name('etudiant.import');

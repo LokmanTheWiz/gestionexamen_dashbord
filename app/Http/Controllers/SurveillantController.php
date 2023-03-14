@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Surveillant;
 use App\Models\Local;
+use App\Models\Professeur;
 use App\Models\Matiere;
 use Illuminate\Http\Request;
 
@@ -32,9 +33,10 @@ class SurveillantController extends Controller
      */
     public function create() 
     {
+        $prof = Professeur::all();
         $local =  Local::all();
         $matiere = Matiere::all();
-        return view('examen.surveillant.create',['local'=>$local,'matiere'=>$matiere]);
+        return view('examen.surveillant.create',['local'=>$local,'matiere'=>$matiere,'prof'=>$prof]);
 
     }
 
